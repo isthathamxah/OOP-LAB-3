@@ -1,0 +1,40 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Employee {
+private:
+    string name;
+    int id;
+    double salary;
+public:
+    Employee(string name, int id, double salary)   {
+        this->name = name;
+        this->id = id;
+        this->salary = salary;
+    }
+
+    void displayDetails() {
+        cout << "\nEmployee Name: " << name << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Employee Salary: Rs " << salary << endl;
+    }
+};
+
+int main() {
+    string name;
+    int id;
+    double salary;
+
+    cout << "Enter Employee Name: ";
+    getline(cin, name);  
+    cout << "Enter Employee ID: ";
+    cin >> id;
+    cout << "Enter Employee Salary: ";
+    cin >> salary;
+
+    Employee emp1(name, id, salary);
+    emp1.displayDetails();
+
+    return 0;
+}
