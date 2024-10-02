@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+struct Dimension {
+	double length;
+	double width;
+};
+struct Area {
+	Dimension D;
+ };
+
+double calculate_Area(Area room) {
+	return room.D.length * room.D.width;
+}
+int main() {
+	Area A;
+	cout << "Enter the length of room : ";
+	cin >> A.D.length;
+
+	cout << "Enter the width of room : ";
+	cin >> A.D.width;
+
+	double result = calculate_Area(A);
+	cout << "The Area of a room is : " << result;
+	return 0;
+}
