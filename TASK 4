@@ -1,0 +1,66 @@
+#include<iostream>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+class BinaryToOctal {
+private:
+    string binary;
+    int decimal;
+    string octal;
+
+    int convertBinaryToDecimal() {
+        int decimalValue = 0;
+        int power = 0;
+
+        for (int i = binary.length() - 1; i >= 0; --i) {
+            if (binary[i] == '1') {
+                decimalValue += pow(2, power);
+            }
+            power++;
+        }
+        return decimalValue;
+    }
+
+    string convertDecimalToOctal(int decimalNumber) {
+        string octalValue = "";
+
+        while (decimalNumber > 0) {
+            int remainder = decimalNumber % 8;
+            octalValue = to_string(remainder) + octalValue;
+            decimalNumber /= 8;
+        }
+
+        if (octalValue.empty()) {
+            return "0";
+        }
+        else {
+            return octalValue;
+        }
+    }
+
+public:
+    BinaryToOctal(string bin) : binary(bin) {
+        decimal = convertBinaryToDecimal();
+        octal = convertDecimalToOctal(decimal);
+    }
+
+    void displayResults() {
+        cout << "Binary: " << binary << endl;
+        cout << "Decimal: " << decimal << endl;  
+        cout << "Octal: " << octal << endl;
+    }
+};
+
+int main() {
+    string binaryInput;
+
+    cout << "Enter a binary number: ";
+    cin >> binaryInput;
+
+    BinaryToOctal converter(binaryInput);
+    converter.displayResults();  
+
+    return 0;
+}
