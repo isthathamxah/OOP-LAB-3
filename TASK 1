@@ -1,0 +1,30 @@
+#include<iostream>
+
+using namespace std;
+
+class Cube {
+public:
+	double side;
+
+
+	Cube(double s) {
+		cout << "Object is Created" << endl;
+		this->side = s;
+	}
+	double Volume() {
+		double vol;
+		vol = side * side * side;
+		return vol;
+	}
+	~Cube() {
+		cout << "\nObject is Destroyed";
+	}
+};
+int main() {
+	double vol;
+	cout << "Enter the value of Volume" << endl;
+	cin >> vol;
+	Cube C(vol);
+	cout << "The Volume of Cube : "<<C.Volume();
+	
+}
