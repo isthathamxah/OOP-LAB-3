@@ -1,0 +1,34 @@
+#include<iostream>
+
+using namespace std;
+
+class Date {
+public:
+	int d;
+	int m;
+	int y;
+
+	Date(int d, int m, int y) {
+		this->d = d;
+		this->m = m;
+		this->y = y;
+	}
+	void Display_Date() {
+		cout << d << " / " << m << " / " << y << endl;
+	}
+
+};
+int main() {
+	int d, m, y;
+	cout << "Enter Date in Format (dd/mm/yyyy)" << endl;
+	cin >> d >> m >> y;
+
+	if (m < 1 || m > 12 || d < 1 || d > 31) {
+		cout << "Invalid date. Please enter a valid date." << endl;
+		return 1;
+	}
+
+	Date D(d, m, y);
+	D.Display_Date();
+	return 0;
+}
